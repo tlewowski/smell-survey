@@ -1,27 +1,5 @@
-use std::time::SystemTime;
-
-pub struct Organization {
-    pub id: i64
-}
-
-pub struct Project {
-    pub id: i64
-}
-
 pub struct User {
     pub id: i64
-}
-
-pub struct OrganizationMember {
-    pub id: i64,
-    pub organization_id: i64,
-    pub user_id: i64
-}
-
-pub struct ProjectMember {
-    pub id: i64,
-    pub project_id: i64,
-    pub user_id: i64
 }
 
 pub struct Role {
@@ -29,18 +7,33 @@ pub struct Role {
     pub name: String,
 }
 
-pub struct ProjectMemberRole {
+pub struct UserSystemRole {
     pub id: i64,
-    pub member_id: i64,
     pub role_id: i64,
-    pub assigned_by_member_id: i64,
-    pub assigned_unix_timestamp: i64
+    pub user_id: i64
 }
 
-pub struct OrganizationMemberRole {
+pub struct Team {
+    pub id: i64,
+    pub parent_team_id: Option<i64>
+}
+
+pub struct TeamMember {
+    pub id: i64,
+    pub team_id: i64,
+    pub user_id: i64
+}
+
+pub struct TeamMemberRole {
     pub id: i64,
     pub member_id: i64,
-    pub role_id: i64,
-    pub assigned_by_member_id: i64,
-    pub assigned_unix_timestamp: i64
+    pub role_id: i64
+}
+
+pub struct AuditTrailRecord {
+    pub id: i64,
+    pub unix_timestamp: i64,
+    pub actor_id: i64,
+    pub action_content_stringified: String,
+    pub was_successful: bool
 }
