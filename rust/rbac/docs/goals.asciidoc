@@ -1,0 +1,7 @@
+services (Docker + Alpine?)
+
+paperclip - OpenAPI generator
+
+Protobuf
+
+Postgres backend
